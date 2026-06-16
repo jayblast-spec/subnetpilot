@@ -1,37 +1,42 @@
 # SubnetPilot
 
-SubnetPilot is part of ArkNet Digital's Cybersecurity Suite.
+SubnetPilot is an ArkNet Digital cybersecurity product.
 
 ## Promise
 
-turn messy IP space into clean, secure, auditable network plans
+Design network segments that make blast radius visible before launch.
 
-## Built For
+SubnetPilot helps cloud teams and network engineers turn vague IP space into auditable segments, policy zones, routing notes, and change-review evidence.
 
-network engineers, cloud teams, and security architects
+## Current v1
 
-## Product Modules
+- Premium defensive cockpit UI
+- Live product-specific intake
+- `POST /api/intelligence`
+- Product-specific scoring and remediation queue
+- Contributor mission lanes
+- Mobile-friendly layout
 
-- CIDR segmentation
-- Firewall intent map
-- Blast-radius labels
-- Capacity forecast
-- Change-review summary
+## Contributor Missions
 
-## Open Source Direction
+- Terraform export: Generate cloud-ready subnet and security group snippets.
+- Cloud import: Read existing VPC/VNet structure and explain drift.
+- Policy simulator: Preview route and firewall effects before change.
+- Capacity forecast: Warn when CIDR choices limit growth.
 
-This repo is open to contributors because strong ideas move faster when serious builders can inspect, improve, and extend them. The goal is not secrecy. The goal is speed, quality, and contribution.
+## Defensive Scope
 
-## First Workflow
-
-1. Enter real context.
-2. Generate a useful first output.
-3. Review risk, confidence, or next action.
-4. Save the result into product memory in a future paid workspace.
+SubnetPilot should focus on defensive architecture planning and change safety.
 
 ## Run Locally
 
 ```bash
 npm install
 npm run dev
+```
+
+## Build
+
+```bash
+npm run build
 ```
