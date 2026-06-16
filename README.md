@@ -1,6 +1,6 @@
 # SubnetPilot
 
-SubnetPilot is part of Joy Ogunleye's Cybersecurity Suite.
+SubnetPilot is part of ArkNet Digital's Cybersecurity Suite.
 
 ## Promise
 
