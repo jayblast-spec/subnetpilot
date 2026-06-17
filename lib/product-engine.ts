@@ -87,7 +87,7 @@ export function generateIntelligence({ input = '' }: IntelligenceInput) {
     severity: severity(score),
     executive_summary: product.sub,
     exposure_map: product.panels.map(([label, value]) => ({ label, value, status: score >= 74 ? 'priority' : 'review' })),
-    remediation_queue: product.rows.slice(0, 3).map(([asset, type, risk, note]) => ({ action: asset + ' - ' + type, owner: risk === 'Critical' ? 'Security lead' : 'Blue Team', impact: note })),
+    remediation_queue: product.rows.slice(0, 3).map(([asset, type, risk, note]) => ({ action: asset + ' - ' + type, owner: String(risk) === 'Critical' ? 'Security lead' : 'Blue Team', impact: note })),
     contributor_lanes: product.missions.map(([lane, mission]) => ({ lane, mission })),
     defensive_scope: product.apiExtra,
     generated_at: new Date().toISOString()
