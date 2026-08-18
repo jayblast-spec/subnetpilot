@@ -38,8 +38,18 @@ SubnetPilot takes a plain-language network design goal (for example: segmented V
 ## How It Works
 
 - Built on Next.js App Router with TypeScript and Tailwind CSS 4, deployed as Vercel serverless functions, entirely client-driven with no account or stored infrastructure state.
-- `app/api/intelligence` runs a deterministic engine (`lib/product-engine.ts`) that scores the submitted design goal and returns an exposure map (CIDR planning, zone intent, blast radius, export path), a remediation queue by risk tier, and contributor lanes.
-- The homepage is a single-page cockpit: a text input for the network design goal, a live design-confidence score, and a segmentation table (public edge, private app, data tier, admin zone) with per-zone risk and guidance.
+- `app/components/subnetMath.ts` does the real work: parses a CIDR block into network/broadcast/first-host/last-host addresses and IP class using bitwise integer math, and splits a block into smaller subnets.
+- `CidrCalculatorPanel.tsx` and `SubnetSplitterPanel.tsx` are the two real tools; the homepage "intelligence" score is a separate decorative widget, not part of the calculator.
+
+## Engineering Notes
+
+**The real problem:** CIDR math is simple in theory (bitmasks) and easy to get wrong in practice under time pressure — an off-by-one on a broadcast address during an incident is exactly the kind of mistake this tool exists to prevent.
+
+**The approach:** every address is converted to a 32-bit integer (`ipToInt`) using real bitwise operators (`<<`, `>>>`, `|`) rather than string manipulation, so network/broadcast/host-range calculations are exact integer math, not approximations — then converted back to dotted-decimal for display.
+
+**One real number:** IP class detection reads the first octet directly (`<128` → A, `<192` → B, `<224` → C, `<240` → D/multicast, else E/reserved) — the same boundaries from the original classful addressing scheme, still useful context even in a CIDR-only world.
+
+**Not handled yet:** IPv6 isn't supported — this is an IPv4-only calculator, and the homepage "intelligence" score is unrelated decorative copy, not a feature of the calculator.
 
 ## Live
 
