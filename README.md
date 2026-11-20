@@ -7,7 +7,6 @@
 SubnetPilot helps cloud teams and network engineers turn vague IP address space into auditable segments, policy zones, routing notes, and change-review evidence — entirely in the browser, before a single subnet ships to production.
 
 <p>
-  <a href="https://subnetpilot.vercel.app"><img alt="Live Demo" src="https://img.shields.io/badge/Live-Demo-1D4ED8?style=for-the-badge&logo=vercel&logoColor=white"></a>
   <a href="https://github.com/jayblast-spec/subnetpilot"><img alt="GitHub Repo" src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white"></a>
 </p>
 
@@ -53,7 +52,7 @@ SubnetPilot takes a plain-language network design goal (for example: segmented V
 
 ## Live
 
-[subnetpilot.vercel.app](https://subnetpilot.vercel.app)
+*(demo temporarily offline)*
 
 ## Tech Stack
 
